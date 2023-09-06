@@ -1,0 +1,204 @@
+@import '../../styles/variables.scss';
+.card{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: $dark-bg;
+    height: max-content;
+    
+    .card-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        .left{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            .image{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: $dark-bg;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+
+            }
+            .title{
+                font-size: 20px;
+                margin-left: 10px;
+                color: $main-color;
+            }
+        }
+        .right{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+    }
+    .hidden{
+        display: none;
+    }
+    .visible{
+        display: block;
+        margin-top: 20px;
+    }
+    .card-body{
+        margin-top: 20px;
+        padding:20px 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border: 1px solid $soft-bg;
+        border-radius: 10px;
+        span {
+            font-size: 16px;
+            font-weight: 600;
+            color: $main-color;
+            margin-right: 1rem;
+        }
+        .section-header{
+            font-size: 18px;
+            font-weight: 600;
+            color: $main-color;
+            margin-bottom: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin:10px 0;
+        }
+        .section-info{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .interview-add-student-form{
+            display: flex;
+            gap: 10px;
+            input{
+                cursor: pointer;
+                padding: 0.5rem;
+                background-color: transparent;
+                color: white;
+                border-radius: 5px;
+                border: 1px solid $soft-color;
+                outline: none;
+                &::-webkit-input-placeholder{
+                    color: $soft-color;
+                }
+            }
+            input:-webkit-autofill,
+            input:-webkit-autofill:hover, 
+            input:-webkit-autofill:focus, 
+            input:-webkit-autofill:active{
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: #ffffff;
+                transition: background-color 5000s ease-in-out 0s;
+            }
+            select{
+                cursor: pointer;
+                padding: 0.5rem;
+                background-color: transparent;
+                color: white;
+                border-radius: 5px;
+                border: 1px solid $soft-color;
+                outline: none;
+                width: 175px;
+                option{
+                    background-color: $soft-bg;
+                    color: $main-color;
+                }
+            }
+            .btn{
+                background-color: $main-bg;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                &:hover{
+                    opacity: 0.8;
+                    filter: brightness(.9);
+                }
+            }
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            margin-top: 20px;
+            text-transform: capitalize;
+            tr{
+                background-color: $soft-bg;
+                color: $main-color;
+                &:nth-child(even){
+                    background-color: $dark-bg;
+                }
+                &:hover{
+                    background-color: $dark-bg;
+                }
+            }
+            th, td{
+                padding: 12px 15px;
+                text-align: center;
+            }
+            th{
+                background-color: $dark-bg;
+                color: $main-color;
+            }
+            td{
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+
+    }
+    .edit-btn{
+        background-color: $main-bg;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+            opacity: 0.8;
+            filter: brightness(.9);
+        }
+    }
+    .delete-btn{
+        background-color: red;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+            opacity: 0.8;
+            filter: brightness(.9);
+        }
+    }
+}

@@ -1,0 +1,45 @@
+@import '../../styles/variables.scss';
+.menu{
+    padding-top: 20px;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
+    .menu-items{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .menu-item{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        &:hover{
+            cursor: pointer;
+            background-color: $soft-bg;
+        }
+        .menu-item-icon{
+            font-size: 1.5rem;
+        }
+        .menu-item-text{
+            font-size: 1.2rem;
+        }
+
+    }
+
+    .menu-bottom{
+        border-top: 1px solid $soft-bg;
+        padding-top: 10px;
+    }
+    @media screen and (max-width: 950px){
+        width: 100%;
+        font-size: large;
+        span{
+            display: none;
+        }
+    }
+}
