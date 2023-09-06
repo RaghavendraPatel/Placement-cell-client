@@ -17,7 +17,7 @@ const Students = (props) => {
     const [editStudent,setEditStudent] = useState({});
 
     const fetchStudents = () => {
-        axios.get('/student',{withCredentials:true}).then((response) => {
+        axios.get('https://palcement-cell-server.onrender.com/student',{withCredentials:true}).then((response) => {
             console.log(response.data);
             setStudentsArr(response.data.students);
         }).catch((err) => {
@@ -37,7 +37,7 @@ const Students = (props) => {
 
     const handleDelete = (id) => {
         console.log(id);
-        axios.delete(`/student/delete/${id}`,{withCredentials:true}).then((response) => {
+        axios.delete(`https://palcement-cell-server.onrender.com/student/delete/${id}`,{withCredentials:true}).then((response) => {
             console.log(response.data);
             fetchStudents();
             toast.success('Student Deleted Successfully');

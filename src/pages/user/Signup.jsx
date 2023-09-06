@@ -27,7 +27,7 @@ export default function SignUp(props) {
         }
         else {
             axios.post(
-                "/employee/create", 
+                "https://palcement-cell-server.onrender.com/employee/create", 
                 data,
                 {
                     headers:{

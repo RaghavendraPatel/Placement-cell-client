@@ -2,7 +2,7 @@
   "name": "cilent",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8000",
+  "proxy": "https://palcement-cell-server.onrender.com",
   "dependencies": {
     "@tanstack/react-query": "^4.33.0",
     "@testing-library/jest-dom": "^5.17.0",

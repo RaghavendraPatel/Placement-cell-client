@@ -44,7 +44,7 @@ const StudentForm = (props) => {
         console.log(data);
         if(props.editForm){
             axios.post(
-                `/student/update/${props.editStudent._id}`,
+                `https://palcement-cell-server.onrender.com/student/update/${props.editStudent._id}`,
                 data,
                 {
                     headers:{
@@ -66,7 +66,7 @@ const StudentForm = (props) => {
         }
         else{
             axios.post(
-                '/student/create',
+                'https://palcement-cell-server.onrender.com/student/create',
                 data,
                 {
                     headers:{

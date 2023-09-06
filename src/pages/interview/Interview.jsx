@@ -17,14 +17,14 @@ const Interview = (props) => {
     const [studentsArr,setStudentsArr] = useState([]);
     
     const fetchInterviews = () => {
-        axios.get('/interview',{withCredentials:true}).then((response) => {
+        axios.get('https://palcement-cell-server.onrender.com/interview',{withCredentials:true}).then((response) => {
             console.log(response.data);
             setInterviewsArr(response.data.interviews);
         });
     }
 
     const fetchStudents = () => {
-        axios.get('/student',{withCredentials:true}).then((response) => {
+        axios.get('https://palcement-cell-server.onrender.com/student',{withCredentials:true}).then((response) => {
             console.log(response.data);
             setStudentsArr(response.data.students);
         });

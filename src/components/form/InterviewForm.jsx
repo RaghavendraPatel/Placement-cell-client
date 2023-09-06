@@ -30,7 +30,7 @@ const InterviewForm = (props) => {
         console.log(data);
         if(props.editForm){
             axios.post(
-                `/interview/update/${props.editInterview._id}`,
+                `https://palcement-cell-server.onrender.com/interview/update/${props.editInterview._id}`,
                 data,
                 {
                     headers:{
@@ -52,7 +52,7 @@ const InterviewForm = (props) => {
         }
         else{
             axios.post(
-                '/interview/create',
+                'https://palcement-cell-server.onrender.com/interview/create',
                 data,
                 {
                     headers:{

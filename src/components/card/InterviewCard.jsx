@@ -49,7 +49,7 @@ const InterviewCard = ({ interview,handleEdit,handleDelete,studentsArr,fetchInte
                 studentId:editStudent._id,
                 email:editStudent.student.email
             }
-            axios.post(`/interview/update-student/${interview._id}`,data,{withCredentials:true}).then((response) => {
+            axios.post(`https://palcement-cell-server.onrender.com/interview/update-student/${interview._id}`,data,{withCredentials:true}).then((response) => {
                 console.log(response.data);
                 toast.success('Student Updated Successfully');
                 handelFormReset();
@@ -63,7 +63,7 @@ const InterviewCard = ({ interview,handleEdit,handleDelete,studentsArr,fetchInte
                 email:e.target[0].value,
                 result:e.target[1].value
             }
-            axios.post(`/interview/add-student/${interview._id}`,data,{withCredentials:true}).then((response) => {
+            axios.post(`https://palcement-cell-server.onrender.com/interview/add-student/${interview._id}`,data,{withCredentials:true}).then((response) => {
                 console.log(response.data);
                 toast.success('Student Added Successfully');
             }).catch((err) => {
@@ -81,7 +81,7 @@ const InterviewCard = ({ interview,handleEdit,handleDelete,studentsArr,fetchInte
         setEditStudent(student);
     }
     const handleStudentDelete = (student) => {
-        axios.post(`/interview/remove-student/${interview._id}/`,{studentObjId:student._id,studentId:student.student._id},{withCredentials:true}).then((response) => {
+        axios.post(`https://palcement-cell-server.onrender.com/interview/remove-student/${interview._id}/`,{studentObjId:student._id,studentId:student.student._id},{withCredentials:true}).then((response) => {
             console.log(response.data);
             toast.success('Student Deleted Successfully');
         }).catch((err) => {

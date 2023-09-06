@@ -13,7 +13,7 @@ const Report = (props) => {
     
 
     const fetchReport = () => {
-        axios.get('/student',{withCredentials:true}).then((response) => {
+        axios.get('https://palcement-cell-server.onrender.com/student',{withCredentials:true}).then((response) => {
             setTableData([]);
             response.data.students.forEach((student) => {
                 const placement = (student.placement)?'Placed':'Not Placed';

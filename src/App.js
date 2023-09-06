@@ -45,7 +45,10 @@ function App() {
     setUser({ name: null, email: null, id: null });
     localStorage.removeItem("user");
     axios
-      .get("/employee/destroy-session", { withCredentials: true })
+      .get(
+        "https://palcement-cell-server.onrender.com/employee/destroy-session",
+        { withCredentials: true }
+      )
       .then((res) => res.data)
       .then((data) => {
         if (data.success === true) {
