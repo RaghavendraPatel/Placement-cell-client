@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 const SignIn = (props) => {
 
     const navigate = useNavigate();
+    const base_url = process.env.REACT_APP_API_PATH||'';
 
     useEffect(() => {
         if(props.user.email){
@@ -24,7 +25,7 @@ const SignIn = (props) => {
     
         axios
         .post(
-            'https://palcement-cell-server.onrender.com/employee/create-session', 
+            `${base_url}/employee/create-session`, 
             data,
             {
                 headers:{
@@ -42,6 +43,7 @@ const SignIn = (props) => {
                 toast.success(data.message);
                 localStorage.setItem('user',JSON.stringify({id:data.user._id,name:data.user.name,email:data.user.email}));
                 props.setActiveUser(data.user);
+                toast.success(`Welcome ${data.user.name}`);
                 navigate('/');
             }
             else{

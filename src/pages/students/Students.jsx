@@ -15,9 +15,10 @@ const Students = (props) => {
     const [formVisible,setFormVisible] = useState(false);
     const [editForm,setEditForm] = useState(false);
     const [editStudent,setEditStudent] = useState({});
+    const base_url = process.env.REACT_APP_API_PATH||'';
 
     const fetchStudents = () => {
-        axios.get('https://palcement-cell-server.onrender.com/student',{withCredentials:true}).then((response) => {
+        axios.get(`${base_url}/student`,{withCredentials:true}).then((response) => {
             console.log(response.data);
             setStudentsArr(response.data.students);
         }).catch((err) => {
@@ -37,7 +38,7 @@ const Students = (props) => {
 
     const handleDelete = (id) => {
         console.log(id);
-        axios.delete(`https://palcement-cell-server.onrender.com/student/delete/${id}`,{withCredentials:true}).then((response) => {
+        axios.delete(`${base_url}/student/delete/${id}`,{withCredentials:true}).then((response) => {
             console.log(response.data);
             fetchStudents();
             toast.success('Student Deleted Successfully');

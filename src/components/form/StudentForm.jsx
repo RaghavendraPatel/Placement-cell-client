@@ -7,6 +7,8 @@ import { toast } from "react-toastify";
 
 const StudentForm = (props) => {
 
+    const base_url = process.env.REACT_APP_API_PATH||'';
+
     useEffect(() => {
         if(props.editForm===true){
             const student = props.editStudent;
@@ -44,7 +46,7 @@ const StudentForm = (props) => {
         console.log(data);
         if(props.editForm){
             axios.post(
-                `https://palcement-cell-server.onrender.com/student/update/${props.editStudent._id}`,
+                `${base_url}/student/update/${props.editStudent._id}`,
                 data,
                 {
                     headers:{
@@ -66,7 +68,7 @@ const StudentForm = (props) => {
         }
         else{
             axios.post(
-                'https://palcement-cell-server.onrender.com/student/create',
+                `${base_url}/student/create`,
                 data,
                 {
                     headers:{

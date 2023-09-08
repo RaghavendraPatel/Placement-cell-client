@@ -6,6 +6,8 @@ import { toast } from "react-toastify";
 
 const InterviewForm = (props) => {
 
+    const base_url = process.env.REACT_APP_API_PATH||'';
+
     useEffect(() => {
         if(props.editForm===true){
             const date = new Date(props.editInterview.date);
@@ -30,7 +32,7 @@ const InterviewForm = (props) => {
         console.log(data);
         if(props.editForm){
             axios.post(
-                `https://palcement-cell-server.onrender.com/interview/update/${props.editInterview._id}`,
+                `${base_url}/interview/update/${props.editInterview._id}`,
                 data,
                 {
                     headers:{
@@ -52,7 +54,7 @@ const InterviewForm = (props) => {
         }
         else{
             axios.post(
-                'https://palcement-cell-server.onrender.com/interview/create',
+                `${base_url}/interview/create`,
                 data,
                 {
                     headers:{

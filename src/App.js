@@ -21,6 +21,7 @@ import axios from "axios";
 
 function App() {
   const [user, setUser] = useState({ name: null, email: null, id: null });
+  const base_url = process.env.REACT_APP_API_PATH || "";
 
   useEffect(() => {
     if (localStorage.getItem("user") !== null) {
@@ -45,10 +46,7 @@ function App() {
     setUser({ name: null, email: null, id: null });
     localStorage.removeItem("user");
     axios
-      .get(
-        "https://palcement-cell-server.onrender.com/employee/destroy-session",
-        { withCredentials: true }
-      )
+      .get(`${base_url}/employee/destroy-session`, { withCredentials: true })
       .then((res) => res.data)
       .then((data) => {
         if (data.success === true) {

@@ -16,17 +16,31 @@ const Interview = (props) => {
     const [editInterview,setEditInterview] = useState({});
     const [studentsArr,setStudentsArr] = useState([]);
     
+    const base_url = process.env.REACT_APP_API_PATH||'';
+    
     const fetchInterviews = () => {
-        axios.get('https://palcement-cell-server.onrender.com/interview',{withCredentials:true}).then((response) => {
+        axios.get(`${base_url}/interview`,{withCredentials:true}).then((response) => {
             console.log(response.data);
             setInterviewsArr(response.data.interviews);
+        }).catch((err) => {
+            if(err.response.status===401){
+                props.logout();
+                toast.info('Session expired, Please Sign In to continue');
+                Navigate('/signin');
+            }
         });
     }
 
     const fetchStudents = () => {
-        axios.get('https://palcement-cell-server.onrender.com/student',{withCredentials:true}).then((response) => {
+        axios.get(`${base_url}/student`,{withCredentials:true}).then((response) => {
             console.log(response.data);
             setStudentsArr(response.data.students);
+        }).catch((err) => {
+            if(err.response.status===401){
+                props.logout();
+                toast.info('Session expired, Please Sign In to continue');
+                Navigate('/signin');
+            }
         });
     }
 
@@ -37,15 +51,16 @@ const Interview = (props) => {
     }
 
     const handleDelete = (id) => {
-        // console.log(id);
-        // axios.delete(`/student/delete/${id}`,{withCredentials:true}).then((response) => {
-        //     console.log(response.data);
-        //     fetchStudents();
-        //     toast.success('Student Deleted Successfully');
-        // }).catch((err) => {
-        //     console.log(err);
-        //     toast.error('Failed to delete Student');
-        // });
+        console.log(id);
+        axios.delete(`${base_url}/interview/delete/${id}`,{withCredentials:true}).then((response) => {
+            console.log(response.data);
+            fetchInterviews();
+            toast.success('Interview Deleted Successfully');
+        }).catch((err) => {
+            console.log(err.response.data.message);
+            toast.error(err.response.data.message);
+        });
+        fetchInterviews();
     }
 
     const toggleForm = () => {

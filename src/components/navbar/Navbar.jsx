@@ -12,7 +12,6 @@ const Navbar = (props)=>{
             <div className="nav-user">
                 <i><FaUserAstronaut/></i>
                 <span>{props.user.name||'Guest'}</span>
-                <i><FiLogOut/></i>
             </div>
         </div>
     );

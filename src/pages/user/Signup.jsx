@@ -7,6 +7,8 @@ import { useEffect } from "react";
 export default function SignUp(props) {
 
     const Navigate = useNavigate();
+    const base_url = process.env.REACT_APP_API_PATH||'';
+    
 
     useEffect(() => {
         if(props.user!==undefined){
@@ -27,7 +29,7 @@ export default function SignUp(props) {
         }
         else {
             axios.post(
-                "https://palcement-cell-server.onrender.com/employee/create", 
+                `${base_url}/employee/create`, 
                 data,
                 {
                     headers:{

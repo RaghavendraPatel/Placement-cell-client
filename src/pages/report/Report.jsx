@@ -10,10 +10,10 @@ import { CSVDownload,CSVLink } from 'react-csv';
 const Report = (props) => {
     const Navigate = useNavigate();
     const [tableData,setTableData] = useState([]);
-    
+    const base_url = process.env.REACT_APP_API_PATH||'';
 
     const fetchReport = () => {
-        axios.get('https://palcement-cell-server.onrender.com/student',{withCredentials:true}).then((response) => {
+        axios.get(`${base_url}/student`,{withCredentials:true}).then((response) => {
             setTableData([]);
             response.data.students.forEach((student) => {
                 const placement = (student.placement)?'Placed':'Not Placed';
